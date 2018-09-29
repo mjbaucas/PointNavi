@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Button currBtn = findViewById(R.id.current);
+        Button searchBtn = findViewById(R.id.search);
         Button exitBtn = findViewById(R.id.exit_app);
 
         final LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -32,12 +33,20 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 locationTracker.updateLocation(MainActivity.this, locationManager);
-                String uri = "http://maps.google.com/maps?daddr" + locationTracker.getLatitude() + "," + locationTracker.getLongitude();
-                Intent mapIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
-                mapIntent.setPackage("com.google.android.apps.maps");
-                startActivity(mapIntent);
+                if (locationTracker.isOnGPS()){
+                    openMap(locationTracker.getLatitude(), locationTracker.getLongitude());
+                }
           }
         });
+
+        searchBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent searchIntent = new Intent(MainActivity.this, SearchActivity.class);
+                startActivity(searchIntent);
+            }
+        });
+
 
         exitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,5 +68,12 @@ public class MainActivity extends AppCompatActivity {
                 alert.show();
             }
         });
+    }
+
+    public void openMap(double latitude, double longitude){
+        Uri uri = Uri.parse("geo:" + latitude + "," + longitude + "?z=14");
+        Intent mapIntent = new Intent(Intent.ACTION_VIEW, uri);
+        mapIntent.setPackage("com.google.android.apps.maps");
+        startActivity(mapIntent);
     }
 }

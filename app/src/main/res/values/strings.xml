@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">PointNavi</string>
+    <string name="search_tab">Search Coordinates</string>
 </resources>

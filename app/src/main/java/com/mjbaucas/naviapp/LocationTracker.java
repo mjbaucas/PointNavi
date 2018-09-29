@@ -2,6 +2,9 @@ package com.mjbaucas.naviapp;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
@@ -14,14 +17,48 @@ import android.util.Log;
 public class LocationTracker implements LocationListener {
     double latitude;
     double longitude;
+    boolean onGPS = false;
 
-    public void updateLocation(Activity activity, LocationManager locationManager){
+    public void updateLocation(final Activity activity, LocationManager locationManager){
         if(ActivityCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
+            Log.d("LOGS", "WE TRIED CALLING");
             if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)){
+                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 1, this);
                 Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-                longitude = location.getLongitude();
-                latitude = location.getLatitude();
+                if (location != null){
+                    longitude = location.getLongitude();
+                    latitude = location.getLatitude();
+                    onGPS = true;
+                } else {
+                    onGPS = false;
+                    AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+                    builder.setTitle("We cant find you...");  // GPS not found
+                    builder.setMessage("GPS has just been turned on and needs time to calibrate. Please try again in a couple of minutes")
+                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.cancel();
+                                }
+                            }).setCancelable(false);
+                    AlertDialog alert = builder.create();
+                    alert.show();
+                }
+            } else {
+                onGPS = false;
+                AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+                builder.setTitle("GPS not Found");  // GPS not found
+                builder.setMessage("Do you want to enable?")
+                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            Intent searchIntent = new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                            activity.startActivity(searchIntent);
+                        }
+                    }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    }).setCancelable(false);
+                AlertDialog alert = builder.create();
+                alert.show();
             }
         } else {
             ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
@@ -52,5 +89,9 @@ public class LocationTracker implements LocationListener {
 
     public double getLongitude() {
         return longitude;
+    }
+
+    public boolean isOnGPS() {
+        return onGPS;
     }
 }

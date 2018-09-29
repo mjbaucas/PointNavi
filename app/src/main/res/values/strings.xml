@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">PointNavi</string>
     <string name="search_tab">Search Coordinates</string>
+    <string name="continent_tab">Select Continent</string>
+    <string name="country_tab">Select Country</string>
+
+    <string name="continent_prompt">Please select a continent</string>
 </resources>

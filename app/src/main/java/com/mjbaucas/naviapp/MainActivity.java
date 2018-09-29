@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
         Button currBtn = findViewById(R.id.current);
         Button searchBtn = findViewById(R.id.search);
+        Button uniBtn = findViewById(R.id.university);
         Button exitBtn = findViewById(R.id.exit_app);
 
         final LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -47,6 +48,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        uniBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent searchIntent = new Intent(MainActivity.this, ContinentActivity.class);
+                startActivity(searchIntent);
+            }
+        });
 
         exitBtn.setOnClickListener(new View.OnClickListener() {
             @Override

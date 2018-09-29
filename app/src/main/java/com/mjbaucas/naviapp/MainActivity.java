@@ -1,17 +1,13 @@
 package com.mjbaucas.naviapp;
 
-import android.Manifest;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.location.LocationManager;
 import android.net.Uri;
-import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -79,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openMap(double latitude, double longitude){
-        Uri uri = Uri.parse("geo:" + latitude + "," + longitude + "?z=14");
+        Uri uri = Uri.parse("geo:" + latitude + "," + longitude + "?z=14&q=" + latitude + "," + longitude);
         Intent mapIntent = new Intent(Intent.ACTION_VIEW, uri);
         mapIntent.setPackage("com.google.android.apps.maps");
         startActivity(mapIntent);

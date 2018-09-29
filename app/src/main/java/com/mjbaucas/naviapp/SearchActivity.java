@@ -34,7 +34,7 @@ public class SearchActivity extends AppCompatActivity {
                 String latVal = latInput.getText().toString();
                 String longVal = longInput.getText().toString();
 
-                Uri uri = Uri.parse("geo:" + latVal + "," + longVal + "?z=14");
+                Uri uri = Uri.parse("geo:" + latVal + "," + longVal + "?z=14&q=" + latVal + "," + longVal);
                 Intent mapIntent = new Intent(Intent.ACTION_VIEW, uri);
                 mapIntent.setPackage("com.google.android.apps.maps");
                 startActivity(mapIntent);

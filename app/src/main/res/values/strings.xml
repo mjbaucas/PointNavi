@@ -1,8 +1,29 @@
 <resources>
     <string name="app_name">PointNavi</string>
-    <string name="search_tab">Search Coordinates</string>
-    <string name="continent_tab">Select Continent</string>
-    <string name="country_tab">Select Country</string>
+
+    <string name="main_current_btn">Current Location</string>
+    <string name="main_coordinates_btn">Search Coordinates</string>
+    <string name="main_country_btn">Search Countries</string>
+    <string name="main_exit_btn">Exit</string>
+
+    <string name="search_tab">PointNavi: Coordinates</string>
+    <string name="continent_tab">PointNavi: Continent</string>
+    <string name="country_tab">PointNavi: Country</string>
+    <string name="university_tab">PointNavi: University</string>
+
+    <string name="search_text">Please enter the coordinates of the place you want to view:</string>
+    <string name="continent_text">Please select a continent from the dropdown below:</string>
+    <string name="country_text">Please select a country from the dropdown below:</string>
+    <string name="university_text">Please select a university that is listed below:</string>
 
     <string name="continent_prompt">Please select a continent</string>
+    <string name="country_prompt">Please select a country</string>
+    <string name="university_prompt">Please select a university</string>
+
+    <string name="longitude">Longitude:</string>
+    <string name="latitude">Longitude:</string>
+    <string name="coordinate_hint">Signed decimals only</string>
+
+    <string name="ok_text">OK</string>
+    <string name="back_text">BACK</string>
 </resources>

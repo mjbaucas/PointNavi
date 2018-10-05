@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
         android:layout_margin="20dp"
         android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textSize="16sp"
+            android:text="@string/search_text"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -25,15 +34,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:textSize="16dp"
-                    android:text="Longitude:"/>
+                    android:textSize="16sp"
+                    android:text="@string/longitude"/>
 
                 <EditText
                     android:id="@+id/input_longitude"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:singleLine="true"
-                    android:inputType="numberSigned|numberDecimal"/>
+                    android:inputType="numberSigned|numberDecimal"
+                    android:labelFor="@+id/input_longitude"
+                    android:importantForAutofill="no"
+                    tools:targetApi="o" />
 
             </LinearLayout>
 
@@ -46,16 +58,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:textSize="16dp"
-                    android:text="Latitude:" />
+                    android:textSize="16sp"
+                    android:text="@string/latitude" />
 
                 <EditText
                     android:id="@+id/input_latitude"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:singleLine="true"
-                    android:inputType="numberSigned|numberDecimal"/>
-
+                    android:inputType="numberSigned|numberDecimal"
+                    android:labelFor="@+id/input_latitude"
+                    android:importantForAutofill="no"
+                    tools:targetApi="o" />
             </LinearLayout>
 
 
@@ -72,14 +86,14 @@
                 android:layout_width="match_parent"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="OK" />
+                android:text="@string/ok_text" />
 
             <Button
                 android:id="@+id/back_search"
                 android:layout_width="match_parent"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="BACK" />
+                android:text="@string/back_text" />
         </LinearLayout>
     </LinearLayout>
 

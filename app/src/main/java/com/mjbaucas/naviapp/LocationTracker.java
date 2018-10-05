@@ -11,7 +11,6 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
-import android.util.Log;
 
 
 public class LocationTracker implements LocationListener {
@@ -21,7 +20,6 @@ public class LocationTracker implements LocationListener {
 
     public void updateLocation(final Activity activity, LocationManager locationManager){
         if(ActivityCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-            Log.d("LOGS", "WE TRIED CALLING");
             if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)){
                 locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 1, this);
                 Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);

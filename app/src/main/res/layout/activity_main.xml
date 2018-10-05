@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -18,26 +19,26 @@
             android:layout_width="match_parent"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="Current Location"/>
+            android:text="@string/main_current_btn"/>
 
         <Button
             android:id="@+id/search"
             android:layout_width="match_parent"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="Search Coordinates"/>
+            android:text="@string/main_coordinates_btn"/>
 
         <Button
             android:id="@+id/university"
             android:layout_width="match_parent"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="Search Country"/>
+            android:text="@string/main_country_btn"/>
         <Button
             android:id="@+id/exit_app"
             android:layout_width="match_parent"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="Exit"/>
+            android:text="@string/main_exit_btn"/>
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

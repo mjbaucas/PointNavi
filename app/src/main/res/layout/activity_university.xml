@@ -16,14 +16,15 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:textSize="16sp"
-            android:text="@string/continent_text"/>
+            android:text="@string/university_text"/>
 
-        <Spinner
-            android:id="@+id/spin_continent"
+        <RadioGroup
+            android:id="@+id/rgrp_university"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_margin="10dp"
-            />
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="10dp">
+        </RadioGroup>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -32,19 +33,20 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/select_continent"
+                android:id="@+id/select_university"
                 android:layout_width="match_parent"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:text="@string/ok_text" />
 
             <Button
-                android:id="@+id/back_continent"
+                android:id="@+id/back_university"
                 android:layout_width="match_parent"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:text="@string/back_text" />
         </LinearLayout>
     </LinearLayout>
+
 
 </android.support.constraint.ConstraintLayout>

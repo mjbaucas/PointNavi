@@ -7,14 +7,21 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center_vertical"
         android:layout_margin="20dp"
         android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textSize="16sp"
+            android:text="@string/country_text"/>
 
         <Spinner
             android:id="@+id/spin_country"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:prompt="@string/continent_prompt"
+            android:layout_height="30dp"
             android:layout_margin="10dp"
             />
 
@@ -29,14 +36,14 @@
                 android:layout_width="match_parent"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="OK" />
+                android:text="@string/ok_text" />
 
             <Button
                 android:id="@+id/back_country"
                 android:layout_width="match_parent"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="BACK" />
+                android:text="@string/back_text" />
         </LinearLayout>
     </LinearLayout>
 

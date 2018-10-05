@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openMap(double latitude, double longitude){
-        Uri uri = Uri.parse("geo:" + latitude + "," + longitude + "?z=14&q=" + latitude + "," + longitude);
+        Uri uri = Uri.parse("geo:" + latitude + "," + longitude + "?z=16");
         Intent mapIntent = new Intent(Intent.ACTION_VIEW, uri);
         mapIntent.setPackage("com.google.android.apps.maps");
         startActivity(mapIntent);

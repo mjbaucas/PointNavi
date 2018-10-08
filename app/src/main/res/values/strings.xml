@@ -21,7 +21,7 @@
     <string name="university_prompt">Please select a university</string>
 
     <string name="longitude">Longitude:</string>
-    <string name="latitude">Longitude:</string>
+    <string name="latitude">Latitude:</string>
     <string name="coordinate_hint">Signed decimals only</string>
 
     <string name="ok_text">OK</string>
